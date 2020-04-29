@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<?php include '/home2/markdevnucitrus/connection.php'; ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +7,6 @@
     <title>Social Spark</title>
 </head>
 <body>
-    Hello World
+    
 </body>
 </html>

@@ -105,6 +105,22 @@
             array_push($error_array, $password_len_error);
         }
         
+        if(count($error_array) == 0) {
+            $password = md5($password);
+            
+            //Generate username
+            $username = strtolower($fname . "_" . $lname);
+            $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+            
+            //If username exists add number to username
+            $i = 0;
+            while(mysqli_num_rows($check_username_query) != 0) {
+                $i++;
+                $username = $username . "_" . $i;
+                $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+            }
+        }
+        
     }
 ?>
 

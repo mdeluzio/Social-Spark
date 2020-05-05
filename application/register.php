@@ -127,6 +127,13 @@
             $insert_query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
             
             $reg_success = "<span class=\"reg_success\">Registration Successful!</span><br>";
+            
+            //Clear session variable
+            $_SESSION['reg_fname'] = "";
+            $_SESSION['reg_lname'] = "";
+            $_SESSION['reg_email'] = "";
+            $_SESSION['reg_email2'] = "";
+            
         }
         
     }

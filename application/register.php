@@ -109,14 +109,14 @@
             //Generate username
             $username = strtolower($fname . "_" . $lname);
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
-            $username_used_flag = 0;
             
             //If username exists add number to username
+            $username_flag = 0;
             $i = 0;
             while(mysqli_num_rows($check_username_query) != 0) {
                 $i++;
-                if(!$username_used_flag) {
-                    $username_used_flag = 1;
+                if(!$username_flag) {
+                    $username_flag = 1;
                     $username = $username . "_" . $i;
                     $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
                 } else {

@@ -1,5 +1,5 @@
 <?php 
-    include '/home2/markdevnucitrus/connection.php'; 
+    include '/home2/markdevnucitrus/connection.php';
     include 'includes/form_handlers/register_handler.php'
 ?>
 

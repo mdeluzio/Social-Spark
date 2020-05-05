@@ -7,7 +7,7 @@
     $password = ""; //Password
     $password2 = ""; //Password 2
     $date = ""; //Sign up date
-    $error_array = []; //Holds error messages
+    $reg_error_array = []; //Holds error messages
     $reg_success = ""; //Holds success message for registration, or acts like a falsy boolean
     
     if(isset($_POST['register_button'])) {
@@ -58,50 +58,50 @@
                 
                 if($num_rows > 0) {
                     $em_in_use = "Email already in use<br>";
-                    array_push($error_array, $em_in_use);
+                    array_push($reg_error_array, $em_in_use);
                 }
                 
             } else {
                 $em_invalid_format = "Invalid email format<br>";
-                array_push($error_array, $em_invalid_format);
+                array_push($reg_error_array, $em_invalid_format);
             }
             
         } else{
             $em_dont_match = "Emails don't match<br>";
-            array_push($error_array, $em_dont_match);
+            array_push($reg_error_array, $em_dont_match);
         }
         
         //Check first name is a proper length
         if(strlen($fname) > 25 || strlen($fname) < 2) {
             $fname_len_error = "Your first name must be between 2 and 25 characters<br>";
-            array_push($error_array, $fname_len_error);
+            array_push($reg_error_array, $fname_len_error);
         }
         
         //Check last name is a proper length
         if(strlen($lname) > 25 || strlen($lname) < 2) {
             $lname_len_error = "Your last name must be between 2 and 25 characters<br>";
-            array_push($error_array, $lname_len_error);
+            array_push($reg_error_array, $lname_len_error);
         }
         
         //Check that both passwords match
         if($password != $password2) {
             $password_match_error = "Your passwords do not match<br>";
-            array_push($error_array, $password_match_error);
+            array_push($reg_error_array, $password_match_error);
         } else {
             //Check that password only contains letters and numbers
             if(preg_match('/[^A-Za-z0-9]/', $password)) {
                 $password_char_error = "Your password can only contain letters or numbers<br>";
-                array_push($error_array, $password_char_error);
+                array_push($reg_error_array, $password_char_error);
             }
         }
         
         //Check password is between 5 and 30 characters in length
         if(strlen($password) > 30 || strlen($password) < 5) {
             $password_len_error = "Your password must be between 5 and 30 characters<br>";
-            array_push($error_array, $password_len_error);
+            array_push($reg_error_array, $password_len_error);
         }
         
-        if(count($error_array) == 0) {
+        if(count($reg_error_array) == 0) {
             $password = md5($password);
             
             //Generate username

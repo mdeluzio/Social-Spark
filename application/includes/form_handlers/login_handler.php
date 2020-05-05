@@ -1,5 +1,7 @@
 <?php
 
+    $login_error_array = [];
+
     if(isset($_POST['login_button'])) {
         $email = filter_var($_POST['log_email'], FILTER_SANITIZE_EMAIL);
         
@@ -14,20 +16,13 @@
             $username = $row['username'];
             
             $_SESSION['username'] = $username;
-            header("Location: index.php");
+            header("Location: ../index.php");
             exit();
+        } else {
+            $login_error = "Email or password was incorrect<br>";
+            array_push($login_error_array, $login_error);
         }
         
     }
-
-
-
-
-
-
-
-
-
-
 
 ?>

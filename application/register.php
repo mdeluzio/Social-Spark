@@ -1,8 +1,7 @@
 <?php include '/home2/markdevnucitrus/connection.php'; ?>
 
 <?php
-    session_start();
-    
+
     $fname = ""; //First Name
     $lname = ""; // Last Name
     $em = ""; //Email
@@ -110,13 +109,20 @@
             //Generate username
             $username = strtolower($fname . "_" . $lname);
             $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+            $username_used_flag = 0;
             
             //If username exists add number to username
             $i = 0;
             while(mysqli_num_rows($check_username_query) != 0) {
                 $i++;
-                $username = $username . "_" . $i;
-                $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+                if(!$username_used_flag) {
+                    $username_used_flag = 1;
+                    $username = $username . "_" . $i;
+                    $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+                } else {
+                    $username = substr($username, 0, -1) . $i;
+                    $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+                }
             }
             
             //Profile picture assignment

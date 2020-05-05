@@ -12,6 +12,15 @@
 </head>
 <body>
     
+    <form action="register.php" method="POST" class="login_form">
+        <input type="email" name="log_email" id="log_email" placeholder="Email address">
+        <br>
+        <input type="password" name="log_password" id="log_password" placeholder="Password">
+        <br>
+        
+        <input type="submit" id="login_button" name="login_button" value="Login">
+    </form>
+    
     <form action="register.php" method="POST" class="register_form">
         <input type="text"  id="reg_fname" name="reg_fname" placeholder="First Name"  
         value="<?php 

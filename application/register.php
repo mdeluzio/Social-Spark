@@ -11,6 +11,7 @@
     $password2 = ""; //Password 2
     $date = ""; //Sign up date
     $error_array = []; //Holds error messages
+    $reg_success = ""; //Holds success message for registration, or acts like a falsy boolean
     
     if(isset($_POST['register_button'])) {
         
@@ -31,13 +32,11 @@
         //Email
         $em = strip_tags($_POST['reg_email']);
         $em = str_replace(' ', '', $em);
-        $em = ucfirst(strtolower($em));
         $_SESSION['reg_email'] = $em;
         
         //Email 2
         $em2 = strip_tags($_POST['reg_email2']);
         $em2 = str_replace(' ', '', $em2);
-        $em2 = ucfirst(strtolower($em2));
         $_SESSION['reg_email2'] = $em2;
         
         //Password
@@ -47,7 +46,7 @@
         $password2 = strip_tags($_POST['reg_password2']);
         
         //Date
-        $date = date("m-d-Y");
+        $date = date("Y-m-d");
         
         //Check both emails match
         if($em == $em2) {
@@ -119,6 +118,15 @@
                 $username = $username . "_" . $i;
                 $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
             }
+            
+            //Profile picture assignment
+            $rand = rand(1, 2);
+            
+            $profile_pic = $rand == 1 ? "assets/images/profile_pics/defaults/head_deep_blue.png" : "assets/images/profile_pics/defaults/head_emerald.png";
+            
+            $insert_query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
+            
+            $reg_success = "<span class=\"reg_success\">Registration Successful!</span><br>";
         }
         
     }
@@ -188,6 +196,8 @@
         ?>
         
         <input type="submit" id="register_button" name="register_button" value="Register">
+        <br>
+        <?php if($reg_success) echo $reg_success; ?>
     </form>
     
     

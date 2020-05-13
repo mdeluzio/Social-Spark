@@ -35,7 +35,7 @@ form {
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    top: 7%;
+    top: 14%;
     width: 35%;
     background-color: #fff;
     border: 1px solid #ededed;
@@ -108,7 +108,7 @@ a.signin, a.signup {
     color: #3498db;
 }
 
-.alternate {
+#alternate {
     display: none;
 }
 

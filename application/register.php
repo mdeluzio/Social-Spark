@@ -11,9 +11,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Social Spark!</title>
     <link rel="stylesheet" type="text/css" href="assets/css/register_style.css">
-    <script src="assets/js/register.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+    
+    <?php
+        
+        if(isset($_POST['register_button'])) {
+           echo "<script>
+                    document.addEventListener('DOMContentLoaded', function(event) {
+                        document.getElementById('default').style.display = 'none';
+                        document.getElementById('alternate').style.display = 'block';
+                    });
+                </script>
+            ";
+        }
+    
+    ?>
     
     <div class="wrapper">
         <div class="login_box">
@@ -22,7 +36,7 @@
                 Login or sign up below
             </div>
             
-            <div class="default">
+            <div id="default">
                 <!--Login Form -->
                 <form action="register.php" method="POST" class="login_form">
                     <input type="email" name="log_email" id="log_email" placeholder="Email address" value="<?php 
@@ -43,7 +57,7 @@
                 </form>
             </div>
             
-            <div class="alternate">
+            <div id="alternate">
                 <!--Register Form -->
                 <form action="register.php" method="POST" class="register_form">
                     <input type="text"  id="reg_fname" name="reg_fname" placeholder="First Name"  
@@ -108,5 +122,6 @@
             </div>
         </div>
     </div>
+    <script src="assets/js/register.js"></script>
 </body>
 </html>

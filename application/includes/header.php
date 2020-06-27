@@ -53,5 +53,8 @@
             <a class="settings_link" href="#">
                 <i class="fa fa-cog fa-lg"></i>
             </a>
+            <a class="settings_link" href="#">
+                <i class="fa fa-sign-out fa-lg"></i>
+            </a>
         </nav>
     </div>

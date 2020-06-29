@@ -126,7 +126,7 @@
             //Profile picture assignment
             $rand = rand(1, 2);
             
-            $profile_pic = $rand == 1 ? "assets/images/profile_pics/defaults/head_deep_blue.png" : "assets/images/profile_pics/defaults/head_emerald.png";
+            $profile_pic = $rand == 1 ? "application/assets/images/profile_pics/defaults/head_deep_blue.png" : "assets/images/profile_pics/defaults/head_emerald.png";
             
             $insert_query = mysqli_query($con, "INSERT INTO users VALUES ('', '$fname', '$lname', '$username', '$em', '$password', '$date', '$profile_pic', '0', '0', 'no', ',')");
             

@@ -22,7 +22,7 @@
     <script src="application/assets/js/bootstrap.js"></script>
     
     <!-- CSS -->
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"  type='text/css'>
     <link rel="stylesheet" type="text/css" href="application/assets/css/bootstrap.css"></link>
     <link rel="stylesheet" type="text/css" href="application/assets/css/style.css"></link>
 

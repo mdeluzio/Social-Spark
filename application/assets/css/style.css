@@ -97,6 +97,7 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    position: absolute;
 }
 
 .user_details_column_interior {
@@ -115,10 +116,48 @@ nav a:hover {
     margin-right: 5px;
 }
 
+.main_column {
+    float: right;
+    width: 70%;
+    z-index: -1;
+    min-height: 60px;
+}
 
+.post_form {
+    width: 100%;
+}
 
+.post_form textarea {
+    width: 81%;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 5px;
+    border: 1px solid #D3D3D3;
+    padding: 5px;
+}
 
+textarea:focus {
+    outline: 0px none transparent;
+}
 
+.post_form input[type="submit"] {
+    width: 11%;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    background-color: #20aae5;
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    color: #1e3b4e;
+    text-shadow: #000 0.5px 0.5px 0px;
+    font-size: 1.6em;
+    position: absolute;
+    outline: 0;
+    margin: 0;
+}
+
+.post_form input[type="submit"]:active {
+    padding: 10px 8px 8px 10px;
+}
 
 
 

@@ -35,7 +35,7 @@
         </div>
     
         <nav>
-            <a class="my_profile_link" href="#">
+            <a class="my_profile_link" href="<?php echo $userLoggedIn;?>">
                 <?php echo $user["first_name"]; ?>
             </a>
             <a class="home_link" href="index.php">

@@ -98,6 +98,7 @@ nav a:hover {
     justify-content: space-between;
     margin-bottom: 20px;
     position: absolute;
+    z-index: 1;
 }
 
 .user_details_column_interior {

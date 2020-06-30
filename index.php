@@ -1,6 +1,12 @@
 <?php
     include("application/includes/header.php");
     include("application/includes/classes/User.php");
+    include("application/includes/classes/Post.php");
+    
+    if(isset($_POST['post'])) {
+        $post = new Post($con, $userLoggedIn);
+        $post->submitPost($_POST['post_text'], 'none');
+    }
 ?>
     
     <div class="user_details column">

@@ -1,5 +1,6 @@
 <?php
     include("application/includes/header.php");
+    include("application/includes/classes/User.php");
 ?>
     
     <div class="user_details column">
@@ -22,6 +23,8 @@
             <input type="submit" name="post" id="post_button" value="Post">
             <hr>
         </form>
+        
+        
     </div>
     
     

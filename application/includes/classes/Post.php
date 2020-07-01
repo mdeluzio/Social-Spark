@@ -53,9 +53,81 @@
                 if($row['user_to'] == "none") {
                     $user_to = "";
                 } else {
-                    $user_to_obj = new User($con, $row['user_to']);
+                    $user_to_obj = new User($this->con, $row['user_to']);
                     $user_to_name = $user_to_obj->getFirstAndLastName();
                     $user_to = "<a href='" . $row['user_to'] . "'>" . $user_to_name . "</a>";
+                }
+                
+                //Check if user who posted has their account closed
+                $added_by_obj = new User($this->con, $added_by);
+                if($added_by_obj->isClosed()) {
+                    continue;
+                }
+                
+                $user_details_query = mysqli_query($this->con, "SELECT first_name, last_name, profile_pic FROM users WHERE username='$added_by'");
+                $user_row = mysqli_fetch_array($user_details_query);
+                
+                //Timeframe
+                $date_time_now = date("Y-m-d H:i:s");
+                $start_date = new DateTime($date_time); // Time of post
+                $end_date = new DateTime($date_time_now); // Current Time
+                $interval = $start_date->diff($end_date);
+                if($interval->y >= 1){
+                    if($interval == 1) {
+                        $time_message = $interval->y . " year ago"; //1 year ago
+                    } else {
+                        $time_message = $interval->y . " years ago"; //more than 1 year ago
+                    }
+                } 
+                else if($interval->m >= 1) { //less than one year old, but at least a month old
+                    if ($interval->d == 0) { 
+                        $days = " ago"; //less than 1 day ago
+                    } 
+                    else if ($interval->d == 1) {
+                        $days = $interval->d . " day ago"; // 1 day ago
+                    } 
+                    else {
+                        $days = $interval->d . " days ago"; // more than 1 day ago
+                    }
+                    
+                    if($interval->m == 1) { //now check how many months old
+                        $time_message = $interval->m . " month" . $days; //1 month ago
+                    } 
+                    else {
+                        $time_message = $interval->m . " months" . $days; // more than 1 month ago
+                    }
+                } 
+                else if($interval->d >= 1) { //less than one month old, but at least one day old
+                    if ($interval->d == 1) {
+                        $time_message = "Yesterday"; // 1 day ago
+                    } 
+                    else {
+                        $time_message = $interval->d . " days ago"; // more than 1 day ago
+                    }
+                }
+                else if($interval->h >= 1) {
+                    if($interval->h == 1) {
+                        $time_message = $interval->h . " hour ago"; // 1 hour ago
+                    }
+                    else {
+                        $time_message = $interval->h . " hours ago"; // more than 1 hour ago
+                    }
+                }
+                else if($interval->i >= 1) {
+                    if($interval->i == 1) {
+                        $time_message = $interval->i . " minute ago"; // 1 minute ago
+                    }
+                    else {
+                        $time_message = $interval->i . " minutes ago"; // more than 1 minute ago
+                    }
+                }
+                else {
+                    if($interval->s < 30) {
+                        $time_message = "Just now"; // less than 30 seconds ago
+                    }
+                    else {
+                        $time_message = $interval->s . " seconds ago"; // 30 seconds or more seconds ago
+                    }
                 }
             }
         }

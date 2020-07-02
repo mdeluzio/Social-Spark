@@ -141,12 +141,14 @@
                             
                             <div class='posted_by'>
                                 <a href='$added_by'> $first_name $last_name</a> $user_to &nbsp;&nbsp;&nbsp;&nbsp;
-                                $time_message
+                                <span class='time_posted'>$time_message</span>
                             </div>
                             <div id='post_body'>
-                                $body<br>
+                                $body
+                                <br>
                             </div>
-                        </div>";
+                        </div>
+                        <hr>";
             }
             
             echo $str;

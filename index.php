@@ -38,6 +38,11 @@
             <hr>
         </form>
         
+        <?php 
+            $post_friends = new Post($con, $userLoggedIn);
+            $post_friends->loadPostsFriends();
+        ?>
+        
         
     </div>
     

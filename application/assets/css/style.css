@@ -160,8 +160,9 @@ textarea:focus {
     padding: 10px 8px 8px 10px;
 }
 
-
-
+.posted_by {
+    color: #ACACAC;
+}
 
 
 

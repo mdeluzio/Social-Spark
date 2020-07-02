@@ -2,6 +2,13 @@
     include '/home2/markdevnucitrus/connection.php';
     include 'includes/form_handlers/login_handler.php';
     include 'includes/form_handlers/register_handler.php';
+    
+     if(!isset($_SERVER["HTTPS"]) || $_SERVER["HTTPS"] != "on") {
+        //Tell the browser to redirect to the HTTPS URL.
+        header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"], true, 301);
+        //Prevent the rest of the script from executing.
+        exit;
+    }
 ?>
 
 

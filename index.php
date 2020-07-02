@@ -38,13 +38,58 @@
             <hr>
         </form>
         
-        <?php 
-            $post_friends = new Post($con, $userLoggedIn);
-            $post_friends->loadPostsFriends();
-        ?>
-        
+        <div class="posts_area"></div>
+        <img id="loading" src="application/assets/images/icons/loading.gif"
         
     </div>
+    
+    <script>
+        let userLoggedIn = '<?php echo $userLoggedIn ?>';
+        
+        $(document).ready(function() {
+            $('#loading').show();
+            
+            //Original ajax request for loading first posts
+            $.ajax({
+                url: "application/includes/handlers/ajax_load_posts.php",
+                type: "POST",
+                data: "page=1&userLoggedIn=" + userLoggedIn,
+                cache: false,
+                success: function(data) {
+                    $('#loading').hide();
+                    $('.posts_area').html(data);
+                }
+            })
+            
+            $(window).scroll(function() {
+                let height = $('.posts_area').height();
+                let scroll_top = $(this).scrollTop();
+                let page = $('.posts_area').find('.nextPage').val();
+                let noMorePosts = $('posts_area').find('noMorePosts').val();
+                
+                if((document.body.scrollHeight === document.body.scrollTop + window.innerHeight) && noMorePosts === 'false') {
+                   $('#loading').show();
+                   
+                   
+                    let ajaxReq = $.ajax({
+                        url: "application/includes/handlers/ajax_load_posts.php",
+                        type: "POST",
+                        data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
+                        cache: false,
+                        success: function(response) {
+                            $('.posts_area').find('.next_page').remove();
+                            $('.posts_area').find('.noMorePosts').remove();
+                            $('#loading').hide();
+                            $('.posts_area').append(response);
+                        }
+                    })
+                } //End if
+                
+                return false;
+            })
+        })
+        
+    </script>
     
     
     

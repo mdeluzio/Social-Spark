@@ -39,7 +39,16 @@
             }
         }
         
-        public function loadPostsFriends() {
+        public function loadPostsFriends($data, $limit) {
+            $page = $data['page'];
+            $userLoggedIn = $this->user_obj->getUserName();
+            
+            if($page == 1) {
+                $start = 0;
+            } else {
+                $start = ($page - 1) * $limit;
+            }
+            
             $str = ""; //String to return
             $data = mysqli_query($this->con, "SELECT * FROM posts WHERE deleted='no' ORDER BY id DESC");
             

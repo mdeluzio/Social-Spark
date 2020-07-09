@@ -65,19 +65,19 @@
                 let height = $('.posts_area').height();
                 let scroll_top = $(this).scrollTop();
                 let page = $('.posts_area').find('.nextPage').val();
-                let noMorePosts = $('posts_area').find('noMorePosts').val();
+                let noMorePosts = $('.posts_area').find('.noMorePosts').val();
+                console.log(noMorePosts);
                 
-                if((document.body.scrollHeight === document.body.scrollTop + window.innerHeight) && noMorePosts === 'false') {
+                if((document.body.scrollHeight == document.body.scrollTop + window.innerHeight) && noMorePosts == 'false') {
                    $('#loading').show();
-                   
-                   
+  
                     let ajaxReq = $.ajax({
                         url: "application/includes/handlers/ajax_load_posts.php",
                         type: "POST",
                         data: "page=" + page + "&userLoggedIn=" + userLoggedIn,
                         cache: false,
                         success: function(response) {
-                            $('.posts_area').find('.next_page').remove();
+                            $('.posts_area').find('.nextPage').remove();
                             $('.posts_area').find('.noMorePosts').remove();
                             $('#loading').hide();
                             $('.posts_area').append(response);

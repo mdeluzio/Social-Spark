@@ -54,7 +54,7 @@
             
             if(mysqli_num_rows($data_query) > 0) {
                 
-                $num_iterations = 0; //Numbber of results checked
+                $num_iterations = 0; //Number of results checked
                 $count = 1;
             
                 while($row = mysqli_fetch_array($data_query)) {
@@ -174,6 +174,13 @@
                                 </div>
                             </div>
                             <hr>";
+                }
+                
+                if($count > $limit) {
+                    $str .= "<input type='hidden' class='nextPage' value='" . ($page + 1) . "'>
+                        <input type='hidden' class='noMorePosts' value='false'>"; 
+                } else {
+                    $str .= "<input type='hidden' class='noMorePosts' value='true'><p class='no_more_posts'>No more posts to show!</p>";
                 }
             }
             

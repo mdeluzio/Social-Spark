@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     
-    <link rel="stylesheet" type="text/css" href="application/assets/css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"></link>
 </head>
 <body>
     
@@ -52,7 +52,7 @@
             $post_body = $_POST['post_body'];
             $post_body = mysqli_escape_string($con, $post_body);
             $date_time_now = date("Y-m-d H:i:s");
-            $insert_post = mysqli_query($con, "INSERT INTO comment VALUES ('', '$post_body', '$userLoggedIn', '$posted_to', '$date_time_now', 'no', '$post_id'");
+            $insert_post = mysqli_query($con, "INSERT INTO comments VALUES ('', '$post_body', '$userLoggedIn', '$posted_to', '$date_time_now', 'no', '$post_id')");
             echo "<p>Comment Posted!</p>";
         }
     ?>

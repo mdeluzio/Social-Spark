@@ -63,7 +63,7 @@
     
     <!-- Load Comments -->
     <?php
-        $get_comments= mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id ASC");
+        $get_comments= mysqli_query($con, "SELECT * FROM comments WHERE post_id='$post_id' ORDER BY id DESC");
         $count = mysqli_num_rows($get_comments);
         if($count != 0) {
             
@@ -137,14 +137,24 @@
                     }
                 } //END if
                 $user_obj = new User($con, $posted_by);
+                
+                ?>
+                
+                <div class="comment_section">
+                    <a href="../<?php echo $posted_by; ?>" target="_parent"><img class="comment_image" src="<?php echo "../" . $user_obj->getProfilePic(); ?>" title="<?php echo $posted_by; ?>" ></a>
+                    <a class="comment_posted_by" href="../<?php echo $posted_by; ?>" target="_parent"><?php echo $user_obj->getFirstAndLastName(); ?></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?>
+                    <hr>
+                </div>
+                
+                <?php
+                
             } //End While
         }
     
     ?>
     
-    <div class="comment_section">
-        <a href="../<?php echo $posted_by; ?>" target="_parent"><img src=""></a>
-    </div>
+
     
     
 

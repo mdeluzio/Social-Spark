@@ -143,7 +143,7 @@
     ?>
     
     <div class="comment_section">
-        <a href="../<?php echo $posted_by; ?>" target="_parent">iron_man</a>
+        <a href="../<?php echo $posted_by; ?>" target="_parent"><img src=""></a>
     </div>
     
     

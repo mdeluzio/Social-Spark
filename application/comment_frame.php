@@ -11,8 +11,8 @@
     
     <?php
         include '/home2/markdevnucitrus/connection.php'; 
-        include("application/includes/classes/User.php");
-        include("application/includes/classes/Post.php");
+        include("includes/classes/User.php");
+        include("includes/classes/Post.php");
         
         
         if(isset($_SESSION['username'])) {
@@ -20,7 +20,6 @@
            $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
            $user = mysqli_fetch_array($user_details_query);
         } else {
-            //temp code to control sessions before implementing logout functionality
             header("Location: application/register.php");
         }
     ?>
@@ -72,6 +71,7 @@
                 $comment_body = $comment['post_body'];
                 $posted_to = $comment['posted_to'];
                 $posted_by = $comment['posted_by'];
+                echo $posted_by . " HERE1<br>";
                 $date_added = $comment['date_added'];
                 $removed = $comment['removed'];
                 
@@ -137,8 +137,9 @@
                         $time_message = $interval->s . " seconds ago"; // 30 seconds or more seconds ago
                     }
                 } //END if
-                
+                echo $posted_by . " Here2<br>";
                 $user_obj = new User($con, $posted_by);
+                echo isset($user_obj);
             } //End While
         }
     
@@ -146,7 +147,8 @@
     
     <div class="comment_section">
         <script>console.log("<?php echo $posted_by; ?>", "yes")</script>
-        <a href='<?php echo $posted_by; ?>' target="_parent">iron_man</a>
+        <a href="../<?php echo $posted_by; ?>" target="_parent">iron_man</a>
+        <?php echo $posted_by; ?>
     </div>
     
     

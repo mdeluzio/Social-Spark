@@ -13,6 +13,18 @@ body {
     background-color: #E8E8E8;
 }
 
+a {
+    color: #20AAE5;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+    
+
+
 .top_bar {
     width: 100%;
     min-width: 1050px;
@@ -169,6 +181,7 @@ textarea:focus {
     font-size: 15px;
     padding: 0 5px;
     min-height: 75px;
+    cursor: pointer;
 }
 
 .post_profile_pic {
@@ -226,7 +239,19 @@ textarea:focus {
     margin: 3px 3px 3px 5px;
 }
 
-
+#comment_form input[type="submit"] {
+    border: none;
+    background-color: #20AAE5;
+    color: #1e3b4e;
+    text-shadow: #000 0.5px 0.5px 0px;
+    border-radius: 5px;
+    width: 12%;
+    height: 35px;
+    margin-top: 3px;
+    position: absolute;
+    font-family: 'Bellota-BoldItalic', sans-serif;
+    font-size: 16px;
+}
 
 
 

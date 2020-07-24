@@ -204,11 +204,6 @@ textarea:focus {
     width: 100%;
 }
 
-#comment_iframe .comment_section * {
-    font-size: 12px;
-    font-family: Arial, Helvetica, Sans-serif;
-}
-
 .comment_section {
     padding: 0 5px 5px 5px;
 }
@@ -221,7 +216,15 @@ textarea:focus {
     margin: 0;
 }
 
-
+#comment_form textarea {
+    border-color: #D3D3D3;
+    width: 85%;
+    height: 35px;
+    border-radius: 5px;
+    color: #616060;
+    font-size: 14px;
+    margin: 3px 3px 3px 5px;
+}
 
 
 

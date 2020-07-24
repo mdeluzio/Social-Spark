@@ -9,6 +9,13 @@
 </head>
 <body>
     
+    <style>
+        * {
+            font-size: 12px;
+            font-family: Arial, Helvetica, Sans-serif;
+        }
+    </style>
+    
     <?php
         include '/home2/markdevnucitrus/connection.php'; 
         include("includes/classes/User.php");
@@ -143,7 +150,9 @@
                 <div class="comment_section">
                     <a href="../<?php echo $posted_by; ?>" target="_parent"><img class="comment_image" src="<?php echo "../" . $user_obj->getProfilePic(); ?>" title="<?php echo $posted_by; ?>" ></a>
                     <a class="comment_posted_by" href="../<?php echo $posted_by; ?>" target="_parent"><?php echo $user_obj->getFirstAndLastName(); ?></a>
-                    &nbsp;&nbsp;&nbsp;&nbsp; <?php echo $time_message . "<br>" . $comment_body; ?>
+                    &nbsp;&nbsp;&nbsp;&nbsp; 
+                    <p class="comment_section_time"><?php echo $time_message . "<br>" ?></p>
+                    <p class="comment_section_body"><?= $comment_body; ?></p>
                     <hr>
                 </div>
                 

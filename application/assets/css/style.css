@@ -191,14 +191,35 @@ textarea:focus {
 .comment_image {
     float: left;
     height: 30px;
+    margin: 0 3px 3px 3px;
+    border-radius: 3px;
 }
 
 .comment_posted_by {
     font-weight: bold;
 }
 
+#comment_iframe {
+    max-height: 250px;
+    width: 100%;
+}
 
+#comment_iframe .comment_section * {
+    font-size: 12px;
+    font-family: Arial, Helvetica, Sans-serif;
+}
 
+.comment_section {
+    padding: 0 5px 5px 5px;
+}
+
+.comment_section_time {
+    display: inline;
+}
+
+.comment_section_body {
+    margin: 0;
+}
 
 
 

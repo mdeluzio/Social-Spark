@@ -57,9 +57,15 @@
         if(isset($_POST['postComment' . $post_id])) {
             $post_body = $_POST['post_body'];
             $post_body = mysqli_escape_string($con, $post_body);
+            $post_body = trim($post_body);
             $date_time_now = date("Y-m-d H:i:s");
+            
+            if(strlen($post_body)) {
             $insert_post = mysqli_query($con, "INSERT INTO comments VALUES ('', '$post_body', '$userLoggedIn', '$posted_to', '$date_time_now', 'no', '$post_id')");
             echo "<p>Comment Posted!</p>";
+            } 
+            else 
+            echo '<p style="color: red;">You can\'t post an empty comment!</p>';
         }
     ?>
     

@@ -103,11 +103,15 @@
                         
                         <script>
                             function toggle<?php echo $id; ?>() {
-                                let element = document.getElementById("toggleComment<?php echo $id; ?>");
-                                if(element.style.display == "block") { 
-                                    element.style.display = "none"; // If showing, hide it
-                                } else {
-                                    element.style.display = "block"; // If not showing, show it
+                                
+                                let target = $(event.target);
+                                if(!target.is("a")) {
+                                    let element = document.getElementById("toggleComment<?php echo $id; ?>");
+                                    if(element.style.display == "block") { 
+                                        element.style.display = "none"; // If showing, hide it
+                                    } else {
+                                        element.style.display = "block"; // If not showing, show it
+                                    }
                                 }
                             }
                         </script>

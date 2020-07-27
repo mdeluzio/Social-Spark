@@ -114,6 +114,9 @@
                         
                         <?php
                         
+                        $comments_check = mysqli_query($this->con, "SELECT * FROM comments WHERE post_id='$id'");
+                        $comments_check_num = mysqli_num_rows($comments_check);
+                        
                         //Timeframe
                         $date_time_now = date("Y-m-d H:i:s");
                         $start_date = new DateTime($date_time); // Time of post
@@ -189,6 +192,9 @@
                                     <div id='post_body'>
                                         $body
                                         <br>
+                                    </div>
+                                    <div class='newsfeedPostOptions'>
+                                        <p class='numberCommentsPost'>This post has $comments_check_num comments!</p>
                                     </div>
                                 </div>
                                 <div class='post_comment' id='toggleComment$id' style='display: none;'>

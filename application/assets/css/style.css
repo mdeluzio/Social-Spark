@@ -213,6 +213,7 @@ textarea:focus {
 }
 
 #comment_iframe {
+    margin-top: .5em;
     max-height: 250px;
     width: 100%;
 }
@@ -256,6 +257,57 @@ textarea:focus {
 .no_post_comments {
     text-align: center;
 }
+
+.newsfeedPostOptions {
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    margin-top: 1.5em;
+    color: #20AAE5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

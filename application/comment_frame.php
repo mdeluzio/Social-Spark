@@ -167,6 +167,8 @@
                 <?php
                 
             } //End While
+        } else {
+            echo "<p class='no_post_comments'>Be the first to comment on this post!</p>";
         }
     
     ?>

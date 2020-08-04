@@ -48,10 +48,22 @@
         $num_rows = mysqli_num_rows($check_query);
         
         if($num_rows > 0) {
-            echo ''; // Add Like button here
+            echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
+                    <input type="submit" class="comment_like" name="unlike_button" value="Unlike">
+                    <div class="like_value">
+                        ' . $total_likes . ' Likes
+                    </div>
+                <form>
+            '; // Add Like button here
         }
         else {
-            echo ''; // Add unlike button here
+            echo '<form action="like.php?post_id=' . $post_id . '" method="POST">
+                    <input type="submit" class="comment_like" name="like_button" value="Like">
+                    <div class="like_value">
+                        ' . $total_likes . ' Likes
+                    </div>
+                <form>
+            '; // Add Like button here
         }
     
     ?>

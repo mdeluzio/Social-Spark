@@ -199,7 +199,7 @@
                                     </div>
                                     <div class='newsfeedPostOptions'>
                                         <p class='numberCommentsPost'>This post has $comments_check_num comments!</p>
-                                        <iframe src='application/like.php?post_id=$id'></iframe>
+                                        <iframe class='likes_iframe' src='application/like.php?post_id=$id'></iframe>
                                     </div>
                                 </div>
                                 <div class='post_comment' id='toggleComment$id' style='display: none;'>

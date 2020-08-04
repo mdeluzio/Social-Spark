@@ -266,7 +266,29 @@ textarea:focus {
     color: #20AAE5;
 }
 
+.likes_iframe {
+    border: none;
+    height: 30px;
+    width: 120px;
+    
+}
 
+.comment_like {
+    background-color: #fff;
+    border: none;
+    font-size: 14px;
+    color: #20aae5;
+    padding: 0;
+}
+
+.like_value {
+    display: inline;
+    font-size: 14px;
+}
+
+.likes_body {
+    background-color: #fff;
+}
 
 
 

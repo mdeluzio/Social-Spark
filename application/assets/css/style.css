@@ -309,9 +309,26 @@ textarea:focus {
     margin-right: 20px;
 }
 
+.profile_page_img {
+    min-width: 80px;
+    width: 55%;
+    margin: 20px;
+    border: 5px solid #83d6fe;
+    border-radius: 100px;
+}
 
 
+.profile_info {
+    /*display: list-item;*/
+    background-color: #2980b9;
+    width: 100%;
+    padding: 10px 0 10px 0;
+}
 
+.profile_info p {
+    margin: 0 0 0 20px;
+    word-wrap: break-word;
+}
 
 
 

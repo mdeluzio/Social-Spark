@@ -10,9 +10,15 @@
     }
     
 ?>
+    <style type="text/css">
+        .wrapper {
+            margin-left: 0;
+            padding-left: 0;
+        }
+    </style>
 
     <div class="profile_left">
-        <img src="<?= $user_array['profile_pic'] ?>">
+        <img class="profile_page_img" src="<?= $user_array['profile_pic'] ?>">
         
         <div class="profile_info">
             <p><?= "Posts: " . $user_array['num_posts']; ?></p>

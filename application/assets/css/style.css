@@ -274,11 +274,15 @@ textarea:focus {
 }
 
 .comment_like {
-    background-color: #fff;
+    background-color: transparent;
     border: none;
     font-size: 14px;
     color: #20aae5;
     padding: 0;
+    height: auto;
+    width: auto;
+    margin: 0;
+    outline:none;
 }
 
 .like_value {
@@ -288,6 +292,7 @@ textarea:focus {
 
 .likes_body {
     background-color: #fff;
+    font-family: Arial, Helvetica, Sans-serif;
 }
 
 
